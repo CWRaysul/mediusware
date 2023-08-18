@@ -18,8 +18,8 @@ class TransactionRepository implements TransactionRepositoryInterface{
 
         $data['user_id'] = Auth::user()->id;
         $data['date'] =  date('Y-m-d H:i:s');
-        $data['free'] =  $this->freeSum($data['user_id'], $data['amount']);
-        // return $data;
+        $data['free'] =  $data['transaction_type'] == 2 ? $this->freeSum($data['user_id'], $data['amount']) : 0;
+        return $data;
         $updateUserBalance =  $this->userBalance($data['user_id'], $data['transaction_type'], $data['amount']);
         if($updateUserBalance){
             Transaction::create($data);
@@ -51,14 +51,8 @@ class TransactionRepository implements TransactionRepositoryInterface{
                 ->whereYear('date', now()->year)
                 ->where('transaction_type', 2)
                 ->sum('amount');
-            if (5000 > $currentMonthWithdrawal) {
-                $remainingAmount = $amount - $currentMonthWithdrawal;
-                if (1 == $account_type) {
-                    $feePercentage = 0.015;
-                } else {
-                    $feePercentage = 0.025;
-                }
-                $free = $remainingAmount * $feePercentage;
+            if ($currentMonthWithdrawal == 0 && 5000 == $amount) {
+                $free = 0;
             } else {
                 if (1 == $account_type) {
                     $feePercentage = 0.015;
