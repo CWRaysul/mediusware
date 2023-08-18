@@ -6,6 +6,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">{{ __('Transation List') }}</div>
+                    <div class="card-header"><a class="dropdown-item" href="{{ route('transaction.create') }}">Add Transation</a></div>
 
                     <div class="card-body">
                         <table border="2">
