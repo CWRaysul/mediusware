@@ -40,3 +40,7 @@ Route::group(['prefix' => 'transaction'], function () {
 Route::group(['prefix' => 'withdrawal'], function () {
     Route::get('/', [TransactionController::class, 'withdrawal'])->name('withdrawal.index');
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
