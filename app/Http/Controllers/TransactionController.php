@@ -25,18 +25,14 @@ class TransactionController extends Controller
         $transactions = $this->transactionRepository->allTransactions();
         return view('transaction.index', compact('transactions'));
     }
-    public function withdrawal()
-    {
-        $transactions = $this->transactionRepository->allWithdrawals();
-        return view('transaction.index', compact('transactions'));
-    }
+
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        return view('transaction.create');
+        //
     }
 
     /**
@@ -44,8 +40,7 @@ class TransactionController extends Controller
      */
     public function store(StoreTransactionRequest $request)
     {
-        $validatedData = $request->validated();
-        return $this->transactionRepository->storeTransaction($validatedData);
+       //
     }
 
 
@@ -54,8 +49,7 @@ class TransactionController extends Controller
      */
     public function show($id)
     {
-        $transaction =  $this->transactionRepository->findTransaction($id);
-        return  view('transaction.show', compact('transaction'));
+        //
     }
 
     /**

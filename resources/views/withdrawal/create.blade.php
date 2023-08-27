@@ -5,30 +5,11 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Add Transation') }}</div>
+                    <div class="card-header">{{ __('Add Withdrawal') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('transaction.store') }}">
+                        <form method="POST" action="{{ route('withdrawal.store') }}">
                             @csrf
-                            <div class="row mb-3">
-                                <label for="name"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('Transation Type') }}</label>
-
-                                <div class="col-md-6">
-                                    <select id="transaction_type" class="form-select @error('transaction_type') is-invalid @enderror"
-                                        name="transaction_type" aria-label="Default select example">
-                                        <option value="1">Deposit</option>
-                                        <option value="2">Withdrawal</option>
-                                    </select>
-
-                                    @if ($errors->has('transaction_type'))
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $errors->first('transaction_type') }}</strong>
-                                        </span>
-                                    @endif
-                                </div>
-                            </div>
-
                             <div class="row mb-3">
                                 <label for="amount"
                                     class="col-md-4 col-form-label text-md-end">{{ __('Amount') }}</label>

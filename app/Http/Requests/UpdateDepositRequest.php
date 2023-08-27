@@ -4,14 +4,14 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreTransactionRequest extends FormRequest
+class UpdateDepositRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return true;
+        return false;
     }
 
     /**
@@ -22,19 +22,7 @@ class StoreTransactionRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'amount'                => 'required',
-            'transaction_type',
-            'user_id',
-            'free',
-            'date',
-        ];
-
-    }
-
-    public function messages()
-    {
-        return [
-            'transaction_type'     => 'Transaction Type field is required',
+            //
         ];
     }
 }
