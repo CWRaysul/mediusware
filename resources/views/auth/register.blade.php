@@ -26,18 +26,6 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Account Type') }}</label>
-
-                            <div class="col-md-6">
-                                <select class="form-select" name="account_type" aria-label="Default select example">
-                                    <option selected>Select Account Type</option>
-                                    <option value="1">Individual</option>
-                                    <option value="2">Business.</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
                             <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
 
                             <div class="col-md-6">
